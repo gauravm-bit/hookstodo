@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import shortid from "shortid";
+import ToDo from "./ToDo";
 import "./App.css";
 
 function App() {
   const [todo, setTodo] = useState({ text: "" });
   const [list, setList] = useState([]);
-
+ 
   const handleChange = (event) => {
     setTodo((todo) => ({
       ...todo,
@@ -21,6 +22,11 @@ function App() {
     if (todo.text.trim().length > 0) {
       setList((list) => [...list, todo]);
     }
+
+    //Resetting the  input to blank again
+    setTodo({
+      text : ""
+    })
   };
 
   console.log(list);
@@ -36,6 +42,9 @@ function App() {
         ></input>
         <button onClick={handleSubmit}>+</button>
       </form>
+      <div >
+        <ToDo list = {list}/>
+      </div>
     </div>
   );
 }
