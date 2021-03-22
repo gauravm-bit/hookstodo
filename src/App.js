@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
   const [todo, setTodo] = useState({ text: "" });
   const [list, setList] = useState([]);
- 
+  
   const handleChange = (event) => {
     setTodo((todo) => ({
       ...todo,
@@ -15,7 +15,6 @@ function App() {
       isCompleted: false,
     }));
   };
-  console.log(todo);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,13 +22,21 @@ function App() {
       setList((list) => [...list, todo]);
     }
 
-    //Resetting the  input to blank again
+    //Resetting the  input to blank again after the todo is added
     setTodo({
-      text : ""
-    })
+      text: "",
+    });
   };
 
-  console.log(list);
+  const toggleState = (id) => {
+    let newlist = [...list];
+    for (let i = 0; i < newlist.length; i++) {
+      if (newlist[i].id === id) {
+        newlist[i].isCompleted = !newlist[i].isCompleted;
+      }
+    }
+    setList([...newlist])
+  }
 
   return (
     <div className="app">
@@ -42,8 +49,8 @@ function App() {
         ></input>
         <button onClick={handleSubmit}>+</button>
       </form>
-      <div >
-        <ToDo list = {list}/>
+      <div>
+        <ToDo toggleState={toggleState} list={list} />
       </div>
     </div>
   );
