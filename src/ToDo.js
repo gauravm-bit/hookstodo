@@ -5,13 +5,19 @@ const ToDo = (props) => {
   return (
     <div className="list">
       {props.list.map((item) => (
-        <li
+        <div>         
+        <li        
           style={{ textDecoration: item.isCompleted ? "line-through" : "none" }}
           onClick={() => props.toggleState(item.id)}
           key={item.id}
         >
+          {item.isCompleted ?<input type="checkbox" checked /> : <input type="checkbox" />  }
+           
+          {" "}
           {item.text}
+          
         </li>
+        </div>
       ))}
     </div>
   );
