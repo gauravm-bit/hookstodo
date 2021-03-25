@@ -42,6 +42,12 @@ function App() {
   return (
     <div className="app">
       <header id="header">TO-DO LIST</header>
+      <p> Number of active todos :{" "}{list.filter(item => item.isCompleted === false).length}  </p>
+      <div>
+      <button> ALL </button>
+      <button> ACTIVE </button>
+      <button> COMPLETED </button>
+      </div>      
       <form onSubmit={handleSubmit}>
         <input
           placeholder="Enter Here"
