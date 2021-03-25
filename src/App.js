@@ -72,7 +72,7 @@ function App() {
     <div className="app">
       <header id="header">TO-DO LIST</header>
       <p> Number of active todos :{" "}{list.filter(item => item.isCompleted === false).length}  </p>
-      <div>
+      <div className="buttonGrp">
       <button onClick = {toggleAll}> ALL </button>
       <button onClick = {toggleActive}> ACTIVE </button>
       <button onClick = {toggleCompleted}> COMPLETED </button>

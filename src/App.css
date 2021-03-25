@@ -17,4 +17,8 @@ p {
   font-size: 15px;
 }
 
+.buttonGrp  :focus{
+ background-color: darkgrey;
+}
+
  
