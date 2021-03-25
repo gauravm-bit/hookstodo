@@ -68,6 +68,12 @@ function App() {
     setList([...updatedList])
   }
 
+  const deleteItem = (id) => {
+    let newlist = list.filter(item => item.id !== id)
+    setList(
+      [...newlist])
+  }
+
   return (
     <div className="app">
       <header id="header">TO-DO LIST</header>
@@ -77,7 +83,7 @@ function App() {
       <button onClick = {toggleActive}> ACTIVE </button>
       <button onClick = {toggleCompleted}> COMPLETED </button>
       </div>    
-      <button onClick = {deleteCompleted} >Delete Completed</button>  
+      <button onClick = {deleteCompleted}> Delete Completed</button>  
       <form onSubmit={handleSubmit}>
         <input
           placeholder="Enter Here"
@@ -87,7 +93,7 @@ function App() {
         <button onClick={handleSubmit}>+</button>
       </form>
       <div>
-        <ToDo toggleState={toggleState} list={currentList} />
+        <ToDo toggleState={toggleState} list={currentList} deleteItem ={ deleteItem}/>
       </div>
     </div>
   );
