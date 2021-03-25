@@ -1,7 +1,7 @@
 import React from "react";
 import "./ToDo.css";
 
-const ToDo = (props) => {
+const ToDo = props => {
   return (
     <div className="list">
       {props.list.map((item) => (
