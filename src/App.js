@@ -59,8 +59,13 @@ function App() {
     setListView("active")
   }
 
-  const toggleComplete = () => {
+  const toggleCompleted = () => {
     setListView("completed")
+  }
+
+  const deleteCompleted = () => {
+    let updatedList = list.filter(item => item.isCompleted === false)
+    setList([...updatedList])
   }
 
   return (
@@ -70,9 +75,9 @@ function App() {
       <div>
       <button onClick = {toggleAll}> ALL </button>
       <button onClick = {toggleActive}> ACTIVE </button>
-      <button onClick = {toggleComplete}> COMPLETED </button>
+      <button onClick = {toggleCompleted}> COMPLETED </button>
       </div>    
-      <button>Delete Completed</button>  
+      <button onClick = {deleteCompleted} >Delete Completed</button>  
       <form onSubmit={handleSubmit}>
         <input
           placeholder="Enter Here"
