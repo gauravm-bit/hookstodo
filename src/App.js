@@ -35,7 +35,8 @@ function App() {
         newlist[i].isCompleted = !newlist[i].isCompleted;
       }
     }
-    setList([...newlist])
+    setList(
+      [...newlist])
   }
 
   return (
